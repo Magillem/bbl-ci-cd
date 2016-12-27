@@ -1,0 +1,13 @@
+img {
+	border:0 !important;
+}
+
+section img.speaker {
+	vertical-align:middle;
+}
+
+section img.waiting-top-left {
+	position:absolute;
+	top:0px;
+	left:260px;
+	transform: rotate(-10deg)
