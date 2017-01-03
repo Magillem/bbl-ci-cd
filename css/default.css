@@ -11,3 +11,13 @@ section img.waiting-top-left {
 	top:0px;
 	left:260px;
 	transform: rotate(-10deg)
+}
+
+section img.no-margin {
+	margin: 0px;
+}
+
+p.source {
+	line-height: 1.0;
+	font-size: 12px;
+}
