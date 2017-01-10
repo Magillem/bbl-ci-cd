@@ -10,7 +10,20 @@ section img.waiting-top-left {
 	position:absolute;
 	top:0px;
 	left:260px;
-	transform: rotate(-10deg)
+}
+
+section img.waiting-top-right {
+	position:absolute;
+	top:0px;
+	right:260px;
+}
+
+section img.rotate-left {
+	transform: rotate(-10deg);
+}
+
+section img.rotate-right {
+	transform: rotate(10deg);
 }
 
 section img.no-margin {
@@ -20,4 +33,9 @@ section img.no-margin {
 p.source {
 	line-height: 1.0;
 	font-size: 12px;
+}
+
+span.small {
+	line-height: 1.0;
+	font-size: 18px;
 }

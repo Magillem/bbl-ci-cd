@@ -23,8 +23,8 @@
 					
 					<p>
 						speakers: 
-						<img class="speaker" src="img/speakers/gary.png" alt="speaker 1">
-						<img class="speaker" src="img/speakers/guillaume.png" alt="speaker 2">
+						<img class="speaker rotate-left" src="img/speakers/gary.png" alt="speaker 1">
+						<img class="speaker rotate-right" src="img/speakers/guillaume.png" alt="speaker 2">
 					</p>
 					
 					<aside class="notes">
@@ -33,7 +33,7 @@
 				</section>
 				
 				<section>
-					<img class="waiting-top-left" src="img/speakers/gary.png" alt="speaker 1">
+					<img class="waiting-top-left rotate-left" src="img/speakers/gary.png" alt="speaker 1">
 				
 					<h2>Plan</h2>
 					
@@ -43,7 +43,7 @@
 				</section>
 				
 				<section>
-					<img class="waiting-top-left" src="img/speakers/gary.png" alt="speaker 1">
+					<img class="waiting-top-left rotate-left" src="img/speakers/gary.png" alt="speaker 1">
 					<h2>Part 1</h2>
 					<h3>CI / CD : What? WHy? How?</h3>
 				</section>
@@ -75,12 +75,38 @@
 						<strong>Continuous Delivery:</strong> It must not be confused with Continuous Deployment which aims at automatically deploying any change 
 						to production!
 					</section>
+					
+					<section>
+						<h3>What?</h3>
+						<ol>
+						<li>Unit test &gt; Package &gt; Test environment deployment
+							<ul>
+								<li>Continuous Integration</li>
+							</ul>
+						</li>
+						<li>functional tests &gt; preproduction environment &gt stress tests
+							<ul>
+								<li>Continuous Delivery</li>
+							</ul>
+						</li>
+						<li>auto scale + production environment deployment
+							<ul>
+								<li>Continuous Deployment</li>
+							</ul>
+						</li>
+					</ol>
+					</section>
 				</section>
 				
 				<section>
 					<h3>Why?</h3>
+					<h3>quality, quality, quality</h3>
+					
 					<ul>
-						<li>Time saver: bugs are detected early in the process</li>
+						<li>
+							Time saver: bugs are detected early in the process 
+							<span class="small">(simple and functional bugs and also performance issues)</span>
+						</li>
 						<li>More feedback to developers = better reactivity</li>
 						<li>Avoid last-minute chaos at release dates</li>
 						<li>Constant availability of a "current" build for testing, demo or release purpose</li>
@@ -118,8 +144,9 @@
 						<ul>
 							<li>Jenkins</li>
 							<li>Travis CI</li>
-							<li>Bamboo</li>
-							<li>TeamCity</li>
+							<li>Atlassian Bamboo</li>
+							<li>JetBrain TeamCity</li>
+							<li>IBM rational Build Forge</li>
 							<li>Team Foundation Build</li>
 							<li>and many more...</li>
 						</ul>
@@ -127,83 +154,64 @@
 				</section>
 				
 				<section>
-					<img class="waiting-top-left" src="img/speakers/gary.png" alt="speaker 1">
+					<img class="waiting-top-right rotate-right" src="img/speakers/guillaume.png" alt="speaker 2">
 					<h2>Part 2</h2>
 					<h3>CI @ Magillem : from Jenkins 1 to Jenkins 2</h3>
 				</section>
 				
 				<section>
-					<img class="waiting-top-left" src="img/speakers/guillaume.png" alt="speaker 2">
-					<h2>Part 3</h2>
-					<h3>Jenkins 2.0 : To Infinity and Beyond</h3>
-				</section>
-				<section>
 					<section>
-					<h2>Part 1 - CI / CD : What ?</h2>
-					<h3>Automate Steps to production</h3>
-
-					<ol>
-						<li>Unit test &gt; Package &gt; Test env deploy
-							<ul>
-								<li>Continuous Integration</li>
-							</ul>
-						</li>
-						<li>functional tests &gt; preprod env &gt stress tests
-							<ul>
-								<li>Continuous Delivery</li>
-							</ul>
-						</li>
-						<li>auto scale + prod env deploy
-							<ul>
-								<li>Continuous Deployment</li>
-							</ul>
-						</li>
-					</ol>
+						<h3>From Ant builds to Maven builds</h3>
+						<p><strong>Before</strong></p>
+						<p>Big Ant scripts with lots of custom java tasks and client specifics tasks.</p>
+						<p>duplicate scripts, config files, installer files, etc.</p>
+						
+						<br>
+						
+						<p><strong>Now (well, pretty much... :D)</strong></p>
+						<p>Tycho for RCP based applications</p>
+						<p>Maven for web applications</p>
 					</section>
+					
 					<section>
-						<h2>Part 1 - CI / CD : Why?</h2>
-						<h3>quality, quality, quality</h3>
-						<p>We want to avoid
-							<ul>
-								<li>simple bugs</li>
-								<li>functional bugs</li>
-								<li>performance bugs</li>
-								<li>manual errors on deploy</li>
-							</ul>
-						</p>
-                        <p>we want to provide
-                            <ul>
-                                <li>environment for demo</li>
-                                <li>environment for beta testers</li>
-                            </ul>
-						</p>
+						<h3>From very long-running jobs to fasts ones?</h3>
+						<p><strong>Before</strong></p>
+						<p>Build and validation jobs taking hours and hours</p>
+						
+						<br>
+						<p><strong>Soon</strong></p>
+						<p>Fast builds and validation jobs thanks to parallelization</p>
 					</section>
+					
 					<section>
-						<h2>Part 1 - CI / CD : How?</h2>
-						<h3>Job scheduler</h3>
+						<h3>From job GUI configuration to job as code</h3>
+						<p><strong>Before</strong></p>
+						<p>Each job is configured in jenkins</p>
+						<p>Lots of variables defined in various places</p>
+						
+						<br>
+						<p><strong>Now (ongoing)</strong></p>
+						<p>versioned job configuration with Jenkinsfile!</p>
+					</section>
+					
+					<section>
+						<h3>From poor availability and hard deployment to automation</h3>
+						<p><strong>Before</strong></p>
 						<ul>
-							<li>Jenkins</li>
-							<li>Atlassian Bamboo</li>
-							<li>JetBrains TeamCity</li>
-							<li>IBM Rational Build Forge</li>
-							<li>...</li>
+							<li>deliveries not available to the team</li>
+							<li>Manual installation</li>
+							<li>Manual GUI tests</li>
 						</ul>
-					</section>
-				</section>
-
-				<section>
-					<section>
-						<h2>Part 2 - CI @ Magillem : from Jenkins 1 to Jenkins 2</h2>
-						<h3>What's new</h3>
+						
+						<p><strong>Now (ongoing)</strong></p>
 						<ul>
-							<li>Pipeline</li>
-							<li>CI / CD as code</li>
-							<li>...</li>
+							<li>Better availability of the deliveries</li>
+							<li>GUI tests automation</li>
+							<li>web app automatic deployment</li>
 						</ul>
 					</section>
 
 					<section>
-						<h2>Part 2 - CI @ Magillem : from Jenkins 1 to Jenkins 2</h2>
 						<h3>Infrastructure &amp; Methodology</h3>
 						<p>2 environments :
 							<ul>
@@ -217,22 +225,26 @@
 						<p>&gt; then deploy/upgrade production</p>
 					</section>
 				</section>
-
+				
+				<section>
+					<img class="waiting-top-left rotate-left" src="img/speakers/gary.png" alt="speaker 1">
+					<img class="waiting-top-right rotate-right" src="img/speakers/guillaume.png" alt="speaker 2">
+					<h2>Part 3</h2>
+					<h3>Jenkins 2.0 : To Infinity and Beyond</h3>
+				</section>
 
 				<section>
 					<section>
-						<h2>Part 3 - Jenkins 2.0 : To Infinity and Beyond</h2>
 						<h3>What's new</h3>
 						<ul>
-							<li>Pipeline based</li>
+							<li>Jenkins Pipeline : a single job for build/test/deploy</li>
 							<li>Pipeline as code</li>
-							<li>UI simplified : tab, icons, ...</li>
+							<li>Simplified UI: tab, icons, ...</li>
 							<li>backward compatible most of the time</li>
 						</ul>
 					</section>
 
 					<section>
-						<h2>Part 3 - Jenkins 2.0 : To Infinity and Beyond</h2>
 						<h3>Pipeline as code</h3>
 						<ul>
 							<li>Pipeline is in groovy</li>
@@ -241,8 +253,12 @@
 							<li>Backup simplified</li>
 						</ul>
 					</section>
+					
 					<section>
-						<h2>Part 3 - Jenkins 2.0 : To Infinity and Beyond</h2>
+						<h3>Blue Ocean</h3>
+					</section>
+
+					<section>
 						<h1>DEMO</h1>
 					</section>
 				</section>
