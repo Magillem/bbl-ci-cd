@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<site>
-   <feature url="features/bblDemo.feature_0.0.0.jar" id="bblDemo.feature" version="0.0.0">
-    <category name="bblDemo"/>
-   </feature>
-   <feature url="features/bblDemo.feature.source_0.0.0.jar" id="bblDemo.feature.source" version="0.0.0">
-    <category name="bblDemo Developer Resources"/>
-   </feature>
-</site>
