@@ -9,5 +9,6 @@ docker run -d --name sonarqube -p 9000:9000 -p 9092:9092 --network="jenkins2" so
 # use full access to localhost (quick and dirty, TODO use docker network)
 docker run -d --name blueocean -p 8080:8080 --network="jenkins2" -v /var/jenkins_home/jobs:jenkins-jobs/ jenkinsci/blueocean
 
-
+# Gate this gateway and put this IP as sonar server config in jenkins
+docker network inspect jenkins2 | grep Gateway
 
