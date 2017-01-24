@@ -46,9 +46,7 @@ node {
            if (isUnix()) {
                sh "cd demo/demo-rcp-tycho/com.mds.bbl.tycho; '${mvnHome}/bin/mvn' sonar:sonar"
            } else {
-               bat(/"${
-                   mvnHome
-               }\bin\mvn" sonar:sonar/)
+               bat(/"${mvnHome}\bin\mvn" sonar:sonar/)
            }
        }
    }
