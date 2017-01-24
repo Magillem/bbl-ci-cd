@@ -38,9 +38,14 @@ node {
    }
    //add mvn sonar:sonar
    stage('Sonar') {
-       def scannerHome = tool 'SonarQube Scanner 2.8';
-       withSonarQubeEnv('SonarQube Server') {
-         sh "${scannerHome}/bin/sonar-scanner"
+//       def scannerHome = tool 'SonarQube Scanner 2.8';
+//       withSonarQubeEnv('SonarQube Server') {
+//         sh "${scannerHome}/bin/sonar-scanner"
+//       }
+       if (isUnix()) {
+           sh "cd demo/demo-rcp-tycho/com.mds.bbl.tycho; '${mvnHome}/bin/mvn' sonar:sonar"
+       } else {
+           bat(/"${mvnHome}\bin\mvn" sonar:sonar/)
        }
    }
 }
