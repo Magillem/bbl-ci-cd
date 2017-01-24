@@ -37,4 +37,10 @@ node {
        archiveArtifacts artifacts: 'demo/demo-rcp-tycho/com.mds.bbl.tycho/releng/com.mds.bbl.tycho.product/target/*.zip', onlyIfSuccessful: true
    }
    //add mvn sonar:sonar
+   stage('Sonar') {
+       def scannerHome = tool 'SonarQube Scanner 2.8';
+       withSonarQubeEnv('SonarQube Server') {
+         sh "${scannerHome}/bin/sonar-scanner"
+       }
+   }
 }
