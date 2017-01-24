@@ -34,7 +34,7 @@ node {
        failFast: false
    }
    stage('archive') {
-       archiveArtifacts artifacts: 'demo/demo-rcp-tycho/com.mds.bbl.tycho/releng/com.mds.bbl.tycho.product/target/*.zip', onlyIfSuccessful: true
+       archiveArtifacts artifacts: 'demo/demo-rcp-tycho/com.mds.bbl.tycho/releng/com.mds.bbl.tycho.product/target/products/*.zip', onlyIfSuccessful: true
    }
    //add mvn sonar:sonar
    stage('Sonar') {
