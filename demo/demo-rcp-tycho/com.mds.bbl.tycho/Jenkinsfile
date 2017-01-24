@@ -42,10 +42,14 @@ node {
 //       withSonarQubeEnv('SonarQube Server') {
 //         sh "${scannerHome}/bin/sonar-scanner"
 //       }
-       if (isUnix()) {
-           sh "cd demo/demo-rcp-tycho/com.mds.bbl.tycho; '${mvnHome}/bin/mvn' sonar:sonar"
-       } else {
-           bat(/"${mvnHome}\bin\mvn" sonar:sonar/)
+       withSonarQubeEnv('SonarQube Server') {
+           if (isUnix()) {
+               sh "cd demo/demo-rcp-tycho/com.mds.bbl.tycho; '${mvnHome}/bin/mvn' sonar:sonar"
+           } else {
+               bat(/"${
+                   mvnHome
+               }\bin\mvn" sonar:sonar/)
+           }
        }
    }
 }
