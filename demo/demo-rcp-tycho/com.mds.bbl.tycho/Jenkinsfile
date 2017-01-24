@@ -15,5 +15,26 @@ node {
          bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean package/)
       }
    }
+   stage('tests') {
+       parallel RCPTT: {
+            echo "starting RCPTT tests..."
+       }, SWTBot: {
+            echo "starting SWTBot tests"
+       },
+       failFast: false
+   }
+   stage('deploy') {
+       parallel "Red Hat target": {
+            echo "Deploying on the Red Hat test machine..."
+       }, "Windows 10 target": {
+            echo "Deploying on the Windows 10 test machine..."
+       }, "Windows 7 target": {
+            echo "Deploying on the Windows 7 test machine..."
+       },
+       failFast: false
+   }
+   stage('archive') {
+       archiveArtifacts artifacts: 'demo/demo-rcp-tycho/com.mds.bbl.tycho/releng/com.mds.bbl.tycho.product/target/*.zip', onlyIfSuccessful: true
+   }
    //add mvn sonar:sonar
 }
