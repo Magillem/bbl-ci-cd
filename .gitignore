@@ -2,6 +2,9 @@
 # Project Specific
 ######################
 /demo/demo-server-jhipster/build/www/**
+/demo/jenkins-jobs/*/builds/
+/demo/jenkins-jobs/*/workspace/
+/demo/jenkins-jobs/*/workspace@script/
 
 ######################
 # Node
